@@ -1,0 +1,150 @@
+/* Основной (центральный) гексагон */
+.hexagon {
+    display: -webkit-flex;
+    display: -webkit-box;
+    display: flex;
+    position: relative;
+    margin: 0;
+    width: 11vw;
+    height: 18vw;
+    top: 9vw;
+    left: 5.5vw;
+    color: black;
+    background-image: linear-gradient(90deg, #ffffff, rgb(255, 255, 255));
+    border-radius: 0.9vw;
+    -webkit-transition: transform 400ms ease;
+    -moz-transition: transform 400ms ease;
+    -o-transition: transform 400ms ease;
+    transition: transform 400ms ease;
+}
+
+.hexagon:before, .hexagon:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: inherit;
+    height: inherit;
+    background-image: inherit;
+    border-radius: inherit;
+}
+
+/* Гексагон среднего размера*/
+.medium-hexagon {
+    position: inherit;
+    display: -webkit-flex;
+    display: -webkit-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 7.2vw;
+    height: 12vw;
+    left: 3.6vw;
+    top: 6vw;
+    background-color: white;
+    border-radius: 0.5vw;
+    -webkit-transition: transform 400ms ease;
+    -moz-transition: transform 400ms ease;
+    -o-transition: transform 400ms ease;
+    transition: transform 400ms ease;
+}
+
+.medium-hexagon:before, .medium-hexagon:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: inherit;
+    height: inherit;
+    background-color: inherit;
+    border-radius: inherit;
+}
+
+/* Маленький гексагон */
+.small-hexagon {
+    position: inherit;
+    display: -webkit-flex;
+    display: -webkit-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 4vw;
+    height: 6.8vw;
+    top: 3.4vw;
+    left: 2vw;
+    color: black;
+    background-image: linear-gradient(90deg, #ffffff, rgb(255, 255, 255));
+    border-radius: 0.3vw;
+    -webkit-transition: transform 400ms ease;
+    -moz-transition: transform 400ms ease;
+    -o-transition: transform 400ms ease;
+    transition: transform 400ms ease;
+}
+
+.small-hexagon:before, .small-hexagon:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: inherit;
+    height: inherit;
+    background-image: inherit;
+    border-radius: inherit;
+}
+
+.medium-hexagon:before, .small-hexagon:before, .hexagon:before {
+    -webkit-transform: rotate(60deg);
+    -moz-transform: rotate(60deg);
+    -o-transform: rotate(60deg);
+    transform: rotate(60deg);
+}
+
+.medium-hexagon:after, .small-hexagon:after, .hexagon:after {
+    -webkit-transform: rotate(-60deg);
+    -moz-transform: rotate(-60deg);
+    -o-transform: rotate(-60deg);
+    transform: rotate(-60deg);
+}
+
+.hex-transform-translate {
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.first-heg-bottom {
+    bottom: -8.8vw;
+    left: -0.3vw;
+}
+
+.first-heg-top {
+    top: -8.8vw;
+    right: -0.3vw;
+}
+
+.second-heg-bottom {
+    bottom: -15vw;
+    left: -0.7vw;
+}
+
+.second-heg-top {
+    top: -15vw;
+    right: -0.7vw;
+}
+
+.parallelogram {
+    -webkit-transform: skew(-30deg);
+    -moz-transform: skew(-30deg);
+    -o-transform: skew(-30deg);
+    transform: skew(-30deg);
+}
