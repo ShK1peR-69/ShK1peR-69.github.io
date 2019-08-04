@@ -5,28 +5,37 @@ let match_3 = $("#item-3");
 let match_4 = $("#item-4");
 let match_5 = $("#item-5");
 
-$(document).on("wheel", function fun(e) {
+/* Добавляем флаг для проверки, чтобы прокрутка колеса обрабатывалась только один раз при каждом действии */
+var flag = false;
+
+$(window).on("DOMMouseScroll mousewheel wheel", function (e) {
     let elem2_id = parseInt(match_2.find("button").attr("id"));
     let elem4_id = parseInt(match_4.find("button").attr("id"));
     let index;
 
-    /* Скролл вниз */
-    if (e.originalEvent.deltaY > 0) {
-        console.log(e.originalEvent.deltaY);
-        index = arr.indexOf(findElemIndex(elem2_id));
-        /* Скролл вверх */
-    } else {
-        index = arr.indexOf(findElemIndex(elem4_id));
+    if (!flag) {
+        /* Скролл вниз */
+        if (e.originalEvent.deltaY > 0) {
+            index = arr.indexOf(findElemIndex(elem2_id));
+            /* Скролл вверх */
+        } else {
+            index = arr.indexOf(findElemIndex(elem4_id));
+        }
+        if (arr[index] !== undefined) {
+            setInfoToSmallTopHexagon(index);
+            setInfoToMediumTopHexagon(index);
+            setInfoToMainHexagon(index);
+            setInfoToMediumBottomHexagon(index);
+            setInfoToSmallBottomHexagon(index);
+            flag = true;
+        } else {
+            e.preventDefault();
+            return false;
+        }
     }
-    if (arr[index] !== undefined) {
-        setInfoToSmallTopHexagon(index);
-        setInfoToMediumTopHexagon(index);
-        setInfoToMainHexagon(index);
-        setInfoToMediumBottomHexagon(index);
-        setInfoToSmallBottomHexagon(index);
-    } else {
-        return false;
-    }
+    setTimeout(function () {
+        flag = false;
+    }, 250);
 });
 
 function setInfoToMainHexagon(idx) {
@@ -44,8 +53,8 @@ function setInfoToMainHexagon(idx) {
 
 /* Проверка и заполнение главного гексагона */
 function setInfoToSmallTopHexagon(idx) {
+    match_5.hide(TIME);
     if (arr[idx + 2] !== undefined) {
-        match_5.hide(TIME);
         setTimeout(function () {
             match_5.empty().append("<span>" + arr[idx + 2].match_date + "</span>");
             match_5.append("<button class='" + medium_btn_class + "' " +
@@ -64,8 +73,8 @@ function setInfoToSmallTopHexagon(idx) {
 
 /* Проверка и заполнение второго верхнего (среднего) гексагона */
 function setInfoToMediumTopHexagon(idx) {
+    match_4.hide(TIME);
     if (arr[idx + 1] !== undefined) {
-        match_4.hide(TIME);
         setTimeout(function () {
             match_4.empty().append("<span>" + arr[idx + 1].match_date + "</span>");
             match_4.append("<button class='" + medium_btn_class + "' " +
@@ -84,8 +93,8 @@ function setInfoToMediumTopHexagon(idx) {
 
 /* Проверка и заполнение второго нижнего (среднего) гексагона */
 function setInfoToMediumBottomHexagon(idx) {
+    match_2.hide(TIME);
     if (arr[idx - 1] !== undefined) {
-        match_2.hide(TIME);
         setTimeout(function () {
             match_2.empty().append("<span>" + arr[idx - 1].match_date + "</span>");
             match_2.append("<button class='" + medium_btn_class + "' " +
@@ -104,8 +113,8 @@ function setInfoToMediumBottomHexagon(idx) {
 
 /* Проверка и заполнение первого нижнего гексагона */
 function setInfoToSmallBottomHexagon(idx) {
+    match_1.hide(TIME);
     if (arr[idx - 2] !== undefined) {
-        match_1.hide(TIME);
         setTimeout(function () {
             match_1.empty().append("<span>" + arr[idx - 2].match_date + "</span>");
             match_1.append("<button class='" + medium_btn_class + "' " +
@@ -120,6 +129,11 @@ function setInfoToSmallBottomHexagon(idx) {
         hex_1.hide(TIME);
     }
 }
+
+//
+// function al(r) {
+//     console.log(r.classList.toString());
+// }
 
 /* Изменение информации о соперниках (боковые блоки) */
 function changeOpponents(match) {
