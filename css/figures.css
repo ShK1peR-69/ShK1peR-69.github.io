@@ -114,28 +114,28 @@
 }
 
 .first-heg-bottom {
+    -moz-margin-start: -10vw;
     bottom: -8.8vw;
     left: -0.3vw;
-    -moz-margin-start: -10vw;
 }
 
 .first-heg-top {
+    -moz-margin-start: 5vw;
     top: -8.8vw;
     right: -0.3vw;
-    -moz-margin-start: 5vw;
     width: 100%;
 }
 
 .second-heg-bottom {
+    -moz-margin-start: -5vw;
     bottom: -15vw;
     left: -0.7vw;
-    -moz-margin-start: -5vw;
 }
 
 .second-heg-top {
+    -moz-margin-start: 5vw;
     top: -15vw;
     right: -0.7vw;
-    -moz-margin-start: 5vw;
 }
 
 .parallelogram {
