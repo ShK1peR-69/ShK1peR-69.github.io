@@ -1,0 +1,33 @@
+body {
+    flex-direction: column;
+    font-family: Bahnschrift Condensed, serif;
+    font-size: 1.4vw;
+    height: 55vw;
+    overflow: hidden;
+    background-color: #020923;
+}
+
+.first-heg-bottom {
+    -moz-margin-start: -10vw;
+    bottom: -8.8vw;
+    left: -5.4vw;
+}
+
+.first-heg-top {
+    -moz-margin-start: 5vw;
+    top: -8.8vw;
+    right: -5.4vw;
+    width: 100%;
+}
+
+.second-heg-bottom {
+    -moz-margin-start: -5vw;
+    bottom: -15vw;
+    left: -3.2vw;
+}
+
+.second-heg-top {
+    -moz-margin-start: 5vw;
+    top: -15vw;
+    right: -3.2vw;
+}
