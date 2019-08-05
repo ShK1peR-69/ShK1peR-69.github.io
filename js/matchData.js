@@ -28,7 +28,7 @@ var arr = [game_1, game_2, game_3, game_4, game_5];
 const medium_btn_class = "hsg-btn medium-hsg-btn";
 const small_btn_class = "hsg-btn small-hsg-btn";
 const info_span_class = "small-text transform";
-const main_match_date_class = "transform";
+const main_match_date_class = "main-date transform";
 const main_match_btn_class = "display-flex transform";
 const btn_txt = "Купить билет";
 

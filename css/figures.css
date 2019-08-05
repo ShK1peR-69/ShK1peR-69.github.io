@@ -1,8 +1,5 @@
 /* Основной (центральный) гексагон */
 .hexagon {
-    display: -webkit-flex;
-    display: -webkit-box;
-    display: flex;
     position: relative;
     margin: 0;
     width: 11vw;
@@ -35,9 +32,6 @@
 /* Гексагон среднего размера*/
 .medium-hexagon {
     position: inherit;
-    display: -webkit-flex;
-    display: -webkit-box;
-    display: flex;
     justify-content: center;
     align-items: center;
     width: 7.2vw;
@@ -69,9 +63,6 @@
 /* Маленький гексагон */
 .small-hexagon {
     position: inherit;
-    display: -webkit-flex;
-    display: -webkit-box;
-    display: flex;
     justify-content: center;
     align-items: center;
     width: 4vw;
@@ -125,21 +116,26 @@
 .first-heg-bottom {
     bottom: -8.8vw;
     left: -0.3vw;
+    -moz-margin-start: -10vw;
 }
 
 .first-heg-top {
     top: -8.8vw;
     right: -0.3vw;
+    -moz-margin-start: 5vw;
+    width: 100%;
 }
 
 .second-heg-bottom {
     bottom: -15vw;
     left: -0.7vw;
+    -moz-margin-start: -5vw;
 }
 
 .second-heg-top {
     top: -15vw;
     right: -0.7vw;
+    -moz-margin-start: 5vw;
 }
 
 .parallelogram {

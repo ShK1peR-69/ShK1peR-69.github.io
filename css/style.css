@@ -1,13 +1,20 @@
 @import "figures.css";
 
 .display-flex {
-    display: -webkit-flex;
     display: -webkit-box;
+    display: -moz-flex;
+    display: -moz-box;
+    display: -ms-flex;
+    display: -ms-flexbox;
     display: flex;
 }
 
 body {
     flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    -moz-box-direction: normal;
     font-family: Bahnschrift Condensed, serif;
     font-size: 1.2vw;
     font-weight: 100;
@@ -20,12 +27,20 @@ header {
     position: absolute;
     top: 0;
     justify-content: space-between;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
     height: 6vw;
     width: 100%;
 }
 
 nav {
     justify-content: space-around;
+    -webkit-justify-content: space-around;
+    -moz-box-pack: distribute;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     top: 0;
     width: 100%;
@@ -59,30 +74,36 @@ nav .sign-in img {
 
 nav button {
     margin-left: -10vw;
-    margin-top: -0.3vw;
     position: relative;
     padding-left: 0;
+    -ms-grid-row-align: center;
     align-self: center;
     text-align: center;
     border: none;
     background: none;
     color: white;
     height: 1.2vw;
-    width: 2.2vw;
+    width: 2.1vw;
 }
 
 nav button img {
     position: absolute;
     top: 0;
     width: 2vw;
-    height: 1.1vw;
+    height: 1.2vw;
+    -webkit-transition-property: width, height;
+    -moz-transition-property: width, height;
+    -o-transition-property: width, height;
     transition-property: width, height;
+    -webkit-transition-duration: 0.5s;
+    -moz-transition-duration: 0.5s;
+    -o-transition-duration: 0.5s;
     transition-duration: 0.5s;
 }
 
 nav button img:hover {
     height: 1.2vw;
-    width: 2.2vw;
+    width: 2.1vw;
 }
 
 button:active, button:focus {
@@ -91,6 +112,7 @@ button:active, button:focus {
 
 .menu-item-1 {
     margin-right: -1vw;
+    -moz-margin-start: -4vw;
 }
 
 .center-menu-item {
@@ -100,8 +122,8 @@ button:active, button:focus {
 /*Растягивает буквы по вертикали*/
 .transform {
     -webkit-transform: scaleY(1.2);
+    -ms-transform: scaleY(1.2);
     -moz-transform: scaleY(1.2);
-    -o-transform: scaleY(1.2);
     transform: scaleY(1.2);
 }
 
@@ -114,20 +136,30 @@ button:active, button:focus {
 }
 
 .bg-big-circle {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -ms-grid-row-align: center;
     align-self: center;
     height: 60vw;
     width: 60vw;
     border-radius: 50%;
     background-color: white;
+    -webkit-box-shadow: inset 0 0 20vw 20vw #1e2447;
     box-shadow: inset 0 0 20vw 20vw #1e2447;
 }
 
 .bg-small-circle {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
     align-content: center;
     text-align: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     height: 38vw;
     width: 38vw;
@@ -136,18 +168,26 @@ button:active, button:focus {
 }
 
 .out-shadow-circle {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     margin-top: -5vw;
+    -ms-grid-row-align: center;
     align-self: center;
     height: 60vw;
     width: 60vw;
     border-radius: 50%;
     background-color: rgba(255, 255, 255, 0);
+    -webkit-box-shadow: 0 0 5vw 3vw #1e1e41;
     box-shadow: 0 0 5vw 3vw #1e1e41;
 }
 
 .opponent {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     position: absolute;
     font-size: 2vw;
@@ -161,12 +201,13 @@ button:active, button:focus {
 
 .opponent span {
     -webkit-transform: skew(30deg) scaleY(1.3);
-    -moz-transform: skew(30deg) scaleY(1.3);
-    -o-transform: skew(30deg) scaleY(1.3);
+    -ms-transform: skew(30deg) scaleY(1.3);
     transform: skew(30deg) scaleY(1.3);
 }
 
 .left-opponent {
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
     justify-content: flex-end;
     left: -3vw;
     top: 16vw;
@@ -175,6 +216,8 @@ button:active, button:focus {
 }
 
 .right-opponent {
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
     justify-content: flex-start;
     right: -3vw;
     top: 25.4vw;
@@ -183,27 +226,48 @@ button:active, button:focus {
 }
 
 .match-info, .medium-match-info, .small-match-info {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     position: relative;
 }
 
 .match-info {
     flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
     justify-content: flex-start;
 }
 
+.main-date {
+    line-height: 0.85;
+}
+
 .medium-match-info {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
 }
 
 .small-match-info {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
 }
 
 .main-math-content {
     position: absolute;
     flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     justify-content: space-around;
+    -webkit-justify-content: space-around;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     margin-top: 1vw;
     width: 10vw;
@@ -212,7 +276,11 @@ button:active, button:focus {
 
 .medium-math-content {
     position: absolute;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     width: 4vw;
     height: 11vw;
@@ -220,7 +288,11 @@ button:active, button:focus {
 
 .last-math-content {
     position: absolute;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     height: 6vw;
     width: 3vw;
@@ -229,6 +301,11 @@ button:active, button:focus {
 
 .hexagons-container {
     flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     justify-content: space-around;
     height: 55vw;
@@ -253,7 +330,11 @@ button:active, button:focus {
 }
 
 .main-math-content button {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
     position: absolute;
     bottom: -3.2vw;
@@ -262,6 +343,7 @@ button:active, button:focus {
     border: 0.1vw solid #020923;
     border-radius: 0.3vw;
     color: #020923;
+    -ms-grid-row-align: center;
     align-self: center;
     width: 8vw;
     height: 2.2vw;
@@ -273,7 +355,6 @@ button:active, button:focus {
     color: white;
     background-color: #020923;
     -webkit-transition: 0.7s;
-    -moz-transition: 0.7s;
     -o-transition: 0.7s;
     transition: 0.7s;
 }
@@ -281,6 +362,8 @@ button:active, button:focus {
 #match-date {
     font-size: 2vw;
     font-weight: bold;
+    -webkit-transform: scaleY(1.5);
+    -ms-transform: scaleY(1.5);
     transform: scaleY(1.5);
 }
 
