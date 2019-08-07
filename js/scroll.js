@@ -1,4 +1,4 @@
-const TIME = 500;
+const TIME = 700;
 let match_1 = $("#item-1");
 let match_2 = $("#item-2");
 let match_3 = $("#item-3");
@@ -15,28 +15,42 @@ $(window).on("DOMMouseScroll mousewheel wheel", function (e) {
 
     if (!flag) {
         /* Скролл вниз */
-        if (e.originalEvent.deltaY > 0) {
-            index = arr.indexOf(findElemIndex(elem2_id));
-            /* Скролл вверх */
-        } else {
-            index = arr.indexOf(findElemIndex(elem4_id));
-        }
-        if (arr[index] !== undefined) {
-            setInfoToSmallTopHexagon(index);
-            setInfoToMediumTopHexagon(index);
-            setInfoToMainHexagon(index);
-            setInfoToMediumBottomHexagon(index);
-            setInfoToSmallBottomHexagon(index);
-            flag = true;
-        } else {
+        if (e.originalEvent.deltaY === 0) {
             e.preventDefault();
             return false;
+        } else {
+            if (e.originalEvent.deltaY > 0) {
+                index = arr.indexOf(findElemIndex(elem2_id));
+                /* Скролл вверх */
+            } else {
+                index = arr.indexOf(findElemIndex(elem4_id));
+            }
+            if (arr[index] !== undefined) {
+                setInfoToSmallTopHexagon(index);
+                setInfoToMediumTopHexagon(index);
+                setInfoToMainHexagon(index);
+                setInfoToMediumBottomHexagon(index);
+                setInfoToSmallBottomHexagon(index);
+                flag = true;
+                timeoutForChangingFlag(e, TIME * 2);
+            } else {
+                flag = true;
+                timeoutForChangingFlag(e, TIME);
+            }
         }
     }
+
+}).off("wheel");
+
+/* Изменение значения флага для того, чтобы функция могла использоваться снова */
+function timeoutForChangingFlag(ev, time) {
     setTimeout(function () {
+        ev.originalEvent = null;
         flag = false;
-    }, 250);
-});
+    }, time);
+    ev.preventDefault();
+    return false;
+}
 
 function setInfoToMainHexagon(idx) {
     match_3.hide(TIME);
@@ -129,11 +143,6 @@ function setInfoToSmallBottomHexagon(idx) {
         hex_1.hide(TIME);
     }
 }
-
-//
-// function al(r) {
-//     console.log(r.classList.toString());
-// }
 
 /* Изменение информации о соперниках (боковые блоки) */
 function changeOpponents(match) {
